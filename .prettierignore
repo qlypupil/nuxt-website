@@ -1,0 +1,21 @@
+# Node / Nuxt 默认目录
+node_modules/
+.nuxt/
+.output/
+dist/
+
+# 配置文件（不希望格式化）
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# 环境 / 临时文件
+.env
+.env.*
+*.log
+
+# 自动生成的类型文件
+*.d.ts
+
+# Tailwind / CSS 输出目录
+public/
