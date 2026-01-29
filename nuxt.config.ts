@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     host: '', // 空字符串：监听所有网卡，终端 Local 显示为 localhost
     port: 4000,
   },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   runtimeConfig: {
     public: {
       /** 接口 base URL，通过环境变量 NUXT_PUBLIC_API_BASE 覆盖 */
@@ -23,5 +23,15 @@ export default defineNuxtConfig({
         { name: 'description', content: '官网' },
       ],
     },
+  },
+  i18n: {
+    defaultLocale: 'zh',
+    strategy: 'prefix_except_default',
+    locales: [
+      { code: 'zh', language: 'zh-CN', name: '简体中文', file: 'zh.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+    ],
+    lazy: true,
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
   },
 })

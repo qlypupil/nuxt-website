@@ -1,0 +1,19 @@
+{
+  "common": {
+    "siteName": "Website",
+    "home": "Home",
+    "news": "News",
+    "about": "About Us"
+  },
+  "pages": {
+    "home": {
+      "title": "Home"
+    },
+    "news": {
+      "title": "News"
+    },
+    "about": {
+      "title": "About Us"
+    }
+  }
+}

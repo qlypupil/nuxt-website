@@ -1,0 +1,19 @@
+{
+  "common": {
+    "siteName": "网站名称",
+    "home": "首页",
+    "news": "新闻",
+    "about": "关于我们"
+  },
+  "pages": {
+    "home": {
+      "title": "首页"
+    },
+    "news": {
+      "title": "新闻"
+    },
+    "about": {
+      "title": "关于我们"
+    }
+  }
+}
