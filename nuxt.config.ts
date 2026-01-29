@@ -31,7 +31,6 @@ export default defineNuxtConfig({
       { code: 'zh', language: 'zh-CN', name: '简体中文', file: 'zh.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
     ],
-    lazy: true,
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
   },
 })

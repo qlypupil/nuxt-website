@@ -46,11 +46,13 @@
 </template>
 
 <script setup lang="ts">
+type LocaleCode = 'zh' | 'en'
+
 const { t, locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 const localePath = useLocalePath()
 
-function switchLocale(code: string) {
+function switchLocale(code: LocaleCode) {
   if (locale.value === code) return
   const path = switchLocalePath(code)
   if (path) {

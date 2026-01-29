@@ -9,10 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const i18nHead = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
-})
+const i18nHead = useLocaleHead()
 
 useHead(() => ({
   htmlAttrs: i18nHead.value.htmlAttrs,
