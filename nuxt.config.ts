@@ -7,6 +7,9 @@ export default defineNuxtConfig({
     port: 4000,
   },
   modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  typescript: {
+    typeCheck: true,
+  },
   runtimeConfig: {
     public: {
       /** 接口 base URL，通过环境变量 NUXT_PUBLIC_API_BASE 覆盖 */
