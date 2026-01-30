@@ -7,13 +7,19 @@
   },
   "pages": {
     "home": {
-      "title": "首页"
+      "title": "首页",
+      "description": "欢迎访问我们的官网首页，了解最新动态与产品服务。",
+      "keywords": "官网首页,公司动态,产品服务"
     },
     "news": {
-      "title": "新闻"
+      "title": "新闻",
+      "description": "查看公司新闻、行业资讯与最新动态。",
+      "keywords": "公司新闻,行业资讯,最新动态"
     },
     "about": {
-      "title": "关于我们"
+      "title": "关于我们",
+      "description": "了解公司简介、发展历程与团队文化。",
+      "keywords": "关于我们,公司简介,发展历程,团队文化"
     }
   }
 }

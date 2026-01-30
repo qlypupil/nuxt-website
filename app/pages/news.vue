@@ -8,6 +8,12 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
+
+useSeoMeta({
+  title: () => `${t('pages.news.title')} - ${t('common.siteName')}`,
+  description: () => t('pages.news.description'),
+  keywords: () => t('pages.news.keywords'),
+})
 </script>
 
 <style scoped></style>

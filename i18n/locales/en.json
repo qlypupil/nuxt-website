@@ -7,13 +7,19 @@
   },
   "pages": {
     "home": {
-      "title": "Home"
+      "title": "Home",
+      "description": "Welcome to our official website. Discover our latest updates and services.",
+      "keywords": "homepage, company updates, products and services"
     },
     "news": {
-      "title": "News"
+      "title": "News",
+      "description": "Company news, industry updates and the latest announcements.",
+      "keywords": "company news, industry news, latest updates"
     },
     "about": {
-      "title": "About Us"
+      "title": "About Us",
+      "description": "Learn about our company, history and team culture.",
+      "keywords": "about us, company profile, history, team culture"
     }
   }
 }
