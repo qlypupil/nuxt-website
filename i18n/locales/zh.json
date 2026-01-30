@@ -3,7 +3,8 @@
     "siteName": "网站名称",
     "home": "首页",
     "news": "新闻",
-    "about": "关于我们"
+    "about": "关于我们",
+    "footerCopyright": "© {year} 公司名称 · 保留所有权利"
   },
   "pages": {
     "home": {

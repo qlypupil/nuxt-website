@@ -3,7 +3,8 @@
     "siteName": "Website",
     "home": "Home",
     "news": "News",
-    "about": "About Us"
+    "about": "About Us",
+    "footerCopyright": "© {year} Company Name. All rights reserved."
   },
   "pages": {
     "home": {
