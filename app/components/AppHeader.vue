@@ -1,3 +1,19 @@
+<script setup lang="ts">
+type LocaleCode = 'zh' | 'en'
+
+const { t, locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+const localePath = useLocalePath()
+
+function switchLocale(code: LocaleCode) {
+  if (locale.value === code) return
+  const path = switchLocalePath(code)
+  if (path) {
+    navigateTo(path)
+  }
+}
+</script>
+
 <template>
   <header class="fixed inset-x-0 top-0 z-50 border-b bg-white/80 backdrop-blur">
     <nav class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
@@ -44,22 +60,6 @@
     </nav>
   </header>
 </template>
-
-<script setup lang="ts">
-type LocaleCode = 'zh' | 'en'
-
-const { t, locale } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
-const localePath = useLocalePath()
-
-function switchLocale(code: LocaleCode) {
-  if (locale.value === code) return
-  const path = switchLocalePath(code)
-  if (path) {
-    navigateTo(path)
-  }
-}
-</script>
 
 <style scoped>
 .nav-link {
