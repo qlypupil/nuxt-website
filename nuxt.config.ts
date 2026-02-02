@@ -13,7 +13,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       /** 接口 base URL，通过环境变量 NUXT_PUBLIC_API_BASE 覆盖 */
-      apiBase: '',
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || '',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
     },
   },
   app: {

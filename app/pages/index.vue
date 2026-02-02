@@ -6,6 +6,9 @@ useSeoMeta({
   description: () => t('pages.home.description'),
   keywords: () => t('pages.home.keywords'),
 })
+
+const config = useRuntimeConfig()
+console.log(config.public.apiBase)
 </script>
 
 <template>

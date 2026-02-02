@@ -6,8 +6,10 @@
     "node": ">=20"
   },
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env.development",
+    "dev:prod": "nuxt dev --dotenv .env.production",
+    "build": "nuxt build --dotenv .env.development",
+    "build:prod": "nuxt build --dotenv .env.production",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
