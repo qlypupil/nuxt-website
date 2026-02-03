@@ -39,14 +39,14 @@
 
 ## 三、SEO 优化
 
-| 优先级 | 任务                   | 说明                                                                                            | 状态    |
-| ------ | ---------------------- | ----------------------------------------------------------------------------------------------- | ------- |
-| 🔴     | 添加 Sitemap           | 引入 `@nuxtjs/sitemap` 自动生成 sitemap.xml                                                     | ⬜ 待办 |
-| 🔴     | 完善 robots.txt        | 补充 `Sitemap:` 指令指向 sitemap.xml                                                            | ⬜ 待办 |
-| 🟡     | 添加 Open Graph 元数据 | 各页面 `useSeoMeta` 补充 `ogTitle`、`ogDescription`、`ogImage`、`twitterCard`（见下方名词解释） | ⬜ 待办 |
-| 🟡     | 修复 app.head 硬编码   | `nuxt.config.ts` 中 `title` 和 `description` 是硬编码中文，应移除或改为默认语言翻译             | ⬜ 待办 |
-| 🟢     | 添加结构化数据         | 加入 `Organization`、`WebSite`、`BreadcrumbList` 等 JSON-LD                                     | ⬜ 待办 |
-| 🟢     | 验证 Canonical URL     | 确认 `useLocaleHead` 生成的 canonical 是否正确                                                  | ⬜ 待办 |
+| 优先级 | 任务                   | 说明                                                                                 | 状态      |
+| ------ | ---------------------- | ------------------------------------------------------------------------------------ | --------- |
+| 🔴     | 添加 Sitemap           | 引入 `@nuxtjs/sitemap` 自动生成 sitemap.xml                                          | ⬜ 待办   |
+| 🔴     | 完善 robots.txt        | 补充 `Sitemap:` 指令指向 sitemap.xml                                                 | ⬜ 待办   |
+| 🟡     | 添加 Open Graph 元数据 | 各页面通过 `usePageSeo` 补充 `ogTitle`、`ogDescription`、`ogImage`（见下方名词解释） | ✅ 已完成 |
+| 🟡     | 修复 app.head 硬编码   | `nuxt.config.ts` 中 `title` 和 `description` 是硬编码中文，应移除或改为默认语言翻译  | ⬜ 待办   |
+| 🟢     | 添加结构化数据         | 加入 `Organization`、`WebSite`、`BreadcrumbList` 等 JSON-LD                          | ⬜ 待办   |
+| 🟢     | 验证 Canonical URL     | 确认 `useLocaleHead` 生成的 canonical 是否正确                                       | ⬜ 待办   |
 
 ### 名词解释：Open Graph 元数据
 

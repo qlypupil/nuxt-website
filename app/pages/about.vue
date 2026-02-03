@@ -1,11 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-
-useSeoMeta({
-  title: () => `${t('pages.about.title')} - ${t('common.siteName')}`,
-  description: () => t('pages.about.description'),
-  keywords: () => t('pages.about.keywords'),
-})
+usePageSeo('about')
 </script>
 
 <template>

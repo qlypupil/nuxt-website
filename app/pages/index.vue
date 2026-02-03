@@ -1,14 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-
-useSeoMeta({
-  title: () => `${t('pages.home.title')} - ${t('common.siteName')}`,
-  description: () => t('pages.home.description'),
-  keywords: () => t('pages.home.keywords'),
-})
-
-const config = useRuntimeConfig()
-console.log(config.public.apiBase)
+usePageSeo('home')
 </script>
 
 <template>
