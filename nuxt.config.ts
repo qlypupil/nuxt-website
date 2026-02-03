@@ -6,7 +6,18 @@ export default defineNuxtConfig({
     host: '', // 空字符串：监听所有网卡，终端 Local 显示为 localhost
     port: 4000,
   },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/i18n', '@nuxt/ui'],
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/image',
+    '@nuxtjs/i18n',
+    '@nuxt/ui',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
+  ],
+  /** Site URL：Sitemap / Robots 使用，生产环境务必设置 NUXT_PUBLIC_SITE_URL */
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:4000',
+  },
   css: ['~/assets/css/main.css'],
   typescript: {
     typeCheck: true,
