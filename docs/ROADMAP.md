@@ -12,6 +12,21 @@
 
 ---
 
+## 当前状态概览
+
+| 类别  | 已完成                          | 待办/可优化                               |
+| ----- | ------------------------------- | ----------------------------------------- |
+| SEO   | Sitemap、Robots、OG、app.head   | 结构化数据、Canonical 验证                |
+| 结构  | composables、i18n、多环境       | useApi、types、utils、middleware、plugins |
+| 质量  | AppFooter i18n、typecheck       | TS 严格模式、单元测试、E2E、ESLint 增强   |
+| 安全  | -                               | 安全头、CI 依赖审计                       |
+| 性能  | -                               | NuxtImg、SSG、懒加载、第三方脚本异步      |
+| DX    | README、.env.example、i18n-ally | docs/ENV.md、launch.json、clean 脚本      |
+| UI/UX | -                               | 404、Loading 指示器、（移动端暂不考虑）   |
+| 运维  | 环境区分、CI 检查               | CI 部署、Dockerfile、监控与统计           |
+
+---
+
 ## 一、项目结构与架构
 
 | 优先级 | 任务                     | 说明                                                                 | 状态    |
@@ -39,14 +54,15 @@
 
 ## 三、SEO 优化
 
-| 优先级 | 任务                   | 说明                                                                                 | 状态      |
-| ------ | ---------------------- | ------------------------------------------------------------------------------------ | --------- |
-| 🔴     | 添加 Sitemap           | 引入 `@nuxtjs/sitemap` 自动生成 sitemap.xml                                          | ⬜ 待办   |
-| 🔴     | 完善 robots.txt        | 补充 `Sitemap:` 指令指向 sitemap.xml                                                 | ⬜ 待办   |
-| 🟡     | 添加 Open Graph 元数据 | 各页面通过 `usePageSeo` 补充 `ogTitle`、`ogDescription`、`ogImage`（见下方名词解释） | ✅ 已完成 |
-| 🟡     | 修复 app.head 硬编码   | `nuxt.config.ts` 中 `title` 和 `description` 是硬编码中文，应移除或改为默认语言翻译  | ⬜ 待办   |
-| 🟢     | 添加结构化数据         | 加入 `Organization`、`WebSite`、`BreadcrumbList` 等 JSON-LD                          | ⬜ 待办   |
-| 🟢     | 验证 Canonical URL     | 确认 `useLocaleHead` 生成的 canonical 是否正确                                       | ⬜ 待办   |
+| 优先级 | 任务                     | 说明                                                                                 | 状态      |
+| ------ | ------------------------ | ------------------------------------------------------------------------------------ | --------- |
+| 🔴     | 添加 Sitemap             | 引入 `@nuxtjs/sitemap`，配置 `site.url`，自动生成 sitemap（含 i18n 多语言）          | ✅ 已完成 |
+| 🔴     | 完善 robots.txt          | 使用 `@nuxtjs/robots` 动态生成 robots.txt，含 Sitemap 链接                           | ✅ 已完成 |
+| 🟡     | 添加 Open Graph 元数据   | 各页面通过 `usePageSeo` 补充 `ogTitle`、`ogDescription`、`ogImage`（见下方名词解释） | ✅ 已完成 |
+| 🟡     | 修复 app.head 硬编码     | 已移除硬编码 `title`/`description`，仅保留 `titleTemplate: '%s'` 与基础 meta         | ✅ 已完成 |
+| 🟢     | 添加结构化数据           | 加入 `Organization`、`WebSite`、`BreadcrumbList` 等 JSON-LD                          | ⬜ 待办   |
+| 🟢     | 验证 Canonical URL       | 确认 `useLocaleHead` 生成的 canonical 是否正确                                       | ⬜ 待办   |
+| 🟢     | 添加 public/og-image.png | usePageSeo 使用该路径作 OG 图，建议 1200×630，避免分享 404                           | ⬜ 待办   |
 
 ### 名词解释：Open Graph 元数据
 
@@ -77,31 +93,32 @@
 | ✅     | 补充 .env.example    | 填写所有需要的环境变量占位                                   | ✅ 已完成 |
 | ✅     | 推荐 i18n-ally 扩展  | 在 extensions.json 中添加 `lokalise.i18n-ally`               | ✅ 已完成 |
 | 🟢     | 添加 VSCode 调试配置 | 创建 `.vscode/launch.json`，配置 Node 调试和浏览器调试       | ⬜ 待办   |
-| 🟢     | 添加 clean 脚本      | `"clean": "rm -rf .nuxt .output node_modules/.cache"`        | ⬜ 待办   |
+| 🟢     | 添加 clean 脚本      | 跨平台清缓存，如 `rimraf .nuxt .output node_modules/.cache`  | ⬜ 待办   |
+| 🟢     | 补充 docs/ENV.md     | README 已引用，需说明各环境变量与 dev/build 对应关系         | ⬜ 待办   |
 
 ---
 
 ## 六、代码质量
 
-| 优先级 | 任务                   | 说明                                                             | 状态    |
-| ------ | ---------------------- | ---------------------------------------------------------------- | ------- |
-| 🔴     | AppFooter 版权 i18n    | 版权文字「公司名称」是硬编码中文，应改为 i18n 翻译               | ⬜ 待办 |
-| 🟡     | 加强 TypeScript 严格度 | tsconfig 追加 `"strict": true, "noUncheckedIndexedAccess": true` | ⬜ 待办 |
-| 🟡     | 引入单元测试           | 添加 `@nuxt/test-utils` + `vitest`，覆盖 composables 和工具函数  | ⬜ 待办 |
-| 🟢     | 增强 ESLint 规则       | 考虑启用 `@nuxt/eslint` 的 `stylistic` 选项或 `vue3-recommended` | ⬜ 待办 |
-| 🟢     | 引入 E2E 测试          | 用 Playwright 测试核心流程（页面可访问、导航、语言切换）         | ⬜ 待办 |
+| 优先级 | 任务                   | 说明                                                             | 状态      |
+| ------ | ---------------------- | ---------------------------------------------------------------- | --------- |
+| 🔴     | AppFooter 版权 i18n    | 已使用 `common.footerCopyright` 与 `{ year }` 插值               | ✅ 已完成 |
+| 🟡     | 加强 TypeScript 严格度 | tsconfig 追加 `"strict": true, "noUncheckedIndexedAccess": true` | ⬜ 待办   |
+| 🟡     | 引入单元测试           | 添加 `@nuxt/test-utils` + `vitest`，覆盖 composables 和工具函数  | ⬜ 待办   |
+| 🟢     | 增强 ESLint 规则       | 考虑启用 `@nuxt/eslint` 的 `stylistic` 选项或 `vue3-recommended` | ⬜ 待办   |
+| 🟢     | 引入 E2E 测试          | 用 Playwright 测试核心流程（页面可访问、导航、语言切换）         | ⬜ 待办   |
 
 ---
 
 ## 七、部署与运维
 
-| 优先级 | 任务            | 说明                                                              | 状态    |
-| ------ | --------------- | ----------------------------------------------------------------- | ------- |
-| 🟡     | CI 添加部署步骤 | 当前 CI 只做检查，缺少自动部署（Vercel/Netlify/Cloudflare Pages） | ⬜ 待办 |
-| 🟢     | 提供 Dockerfile | 如需私有化部署，提供 `Dockerfile` 和 `docker-compose.yml`         | ⬜ 待办 |
-| 🟢     | 环境区分        | 考虑 `.env.development`、`.env.production`、`.env.staging`        | ⬜ 待办 |
-| 🟢     | 接入错误监控    | 生产环境接入 Sentry（`@sentry/nuxt`）或类似服务                   | ⬜ 待办 |
-| 🟢     | 接入访问统计    | 接入 Google Analytics、Plausible 或百度统计                       | ⬜ 待办 |
+| 优先级 | 任务            | 说明                                                              | 状态      |
+| ------ | --------------- | ----------------------------------------------------------------- | --------- |
+| 🟡     | CI 添加部署步骤 | 当前 CI 只做检查，缺少自动部署（Vercel/Netlify/Cloudflare Pages） | ⬜ 待办   |
+| 🟢     | 提供 Dockerfile | 如需私有化部署，提供 `Dockerfile` 和 `docker-compose.yml`         | ⬜ 待办   |
+| 🟢     | 环境区分        | 已使用 `.env.development`、`.env.production`，脚本见 package.json | ✅ 已完成 |
+| 🟢     | 接入错误监控    | 生产环境接入 Sentry（`@sentry/nuxt`）或类似服务                   | ⬜ 待办   |
+| 🟢     | 接入访问统计    | 接入 Google Analytics、Plausible 或百度统计                       | ⬜ 待办   |
 
 ---
 
@@ -131,19 +148,42 @@
 以下任务建议优先完成：
 
 - [ ] 🔴 移动端响应式导航（汉堡菜单）
-- [ ] 🔴 自定义 404 页面
-- [ ] 🔴 AppFooter 版权改为 i18n
-- [ ] 🔴 添加 Sitemap
-- [ ] 🔴 完善 robots.txt
+- [ ] 🔴 自定义 404 页面（error.vue）
+- [x] 🔴 AppFooter 版权改为 i18n
+- [x] 🔴 添加 Sitemap
+- [x] 🔴 完善 robots.txt
+
+---
+
+## 补充说明与实施建议
+
+- **文档与资源**：README 引用了 docs/ENV.md，若不存在需补充；OG 分享图使用 `siteUrl/og-image.png`，需在 public 下放置 1200×630 图。
+- **安全头**：可在 nuxt.config 的 `nitro.routeRules` 或部署平台配置 `X-Frame-Options: DENY`、`X-Content-Type-Options: nosniff`，必要时再考虑 CSP。
+- **CI 依赖审计**：在 `.github/workflows/ci.yml` 中增加 `npm audit --audit-level=high`（或 `moderate`），失败时阻断合并。
+- **建议实施顺序**：先补齐 ENV.md、og-image.png、clean 脚本与 404/Loading，再做安全头与 useApi/types，最后按需做测试与部署。
+
+---
+
+## 上线前检查清单
+
+- [ ] 生产环境已配置 `NUXT_PUBLIC_SITE_URL`（与最终域名一致）
+- [ ] `public/og-image.png` 已存在且尺寸合适
+- [ ] 若 README 引用 docs/ENV.md，则 ENV.md 已编写并提交
+- [ ] 安全头已在 Nuxt 或部署平台配置
+- [ ] CI 包含 lint、format:check、typecheck、build（及可选 audit）
+- [ ] 404 与错误页对用户友好（error.vue + i18n）
 
 ---
 
 ## 更新日志
 
-| 日期       | 更新内容                                                |
-| ---------- | ------------------------------------------------------- |
-| 2026-01-29 | 初始化优化路线图文档                                    |
-| 2026-01-29 | 完成 README 重写、.env.example 补充、i18n-ally 扩展推荐 |
+| 日期       | 更新内容                                                                                            |
+| ---------- | --------------------------------------------------------------------------------------------------- |
+| 2026-01-29 | 初始化优化路线图文档                                                                                |
+| 2026-01-29 | 完成 README 重写、.env.example 补充、i18n-ally 扩展推荐                                             |
+| 2026-01-29 | SEO：添加 @nuxtjs/sitemap、@nuxtjs/robots，配置 site.url；Open Graph 通过 usePageSeo 完成           |
+| 2026-01-29 | 完成 AppFooter 版权 i18n、环境区分（.env.development/.production）；ROADMAP 状态同步                |
+| 2026-01-29 | 合并 OPTIMIZATION.md 入 ROADMAP：当前状态概览、补充说明、上线前检查清单、ENV.md/og-image/clean 任务 |
 
 ---
 

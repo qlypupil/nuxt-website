@@ -31,12 +31,10 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: '官网',
-      titleTemplate: '%s | 官网',
+      titleTemplate: '%s',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: '官网' },
       ],
     },
   },
