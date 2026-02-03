@@ -9,9 +9,9 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-neutral-50">
     <AppHeader />
-    <main class="mx-auto max-w-5xl px-4 pb-16 pt-20">
+    <main class="mx-auto max-w-5xl px-4 pt-20 pb-16">
       <slot />
     </main>
     <AppFooter />

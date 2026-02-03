@@ -39,14 +39,24 @@
 
 ## 三、SEO 优化
 
-| 优先级 | 任务                   | 说明                                                                                | 状态    |
-| ------ | ---------------------- | ----------------------------------------------------------------------------------- | ------- |
-| 🔴     | 添加 Sitemap           | 引入 `@nuxtjs/sitemap` 自动生成 sitemap.xml                                         | ⬜ 待办 |
-| 🔴     | 完善 robots.txt        | 补充 `Sitemap:` 指令指向 sitemap.xml                                                | ⬜ 待办 |
-| 🟡     | 添加 Open Graph 元数据 | 各页面 `useSeoMeta` 补充 `ogTitle`、`ogDescription`、`ogImage`、`twitterCard`       | ⬜ 待办 |
-| 🟡     | 修复 app.head 硬编码   | `nuxt.config.ts` 中 `title` 和 `description` 是硬编码中文，应移除或改为默认语言翻译 | ⬜ 待办 |
-| 🟢     | 添加结构化数据         | 加入 `Organization`、`WebSite`、`BreadcrumbList` 等 JSON-LD                         | ⬜ 待办 |
-| 🟢     | 验证 Canonical URL     | 确认 `useLocaleHead` 生成的 canonical 是否正确                                      | ⬜ 待办 |
+| 优先级 | 任务                   | 说明                                                                                            | 状态    |
+| ------ | ---------------------- | ----------------------------------------------------------------------------------------------- | ------- |
+| 🔴     | 添加 Sitemap           | 引入 `@nuxtjs/sitemap` 自动生成 sitemap.xml                                                     | ⬜ 待办 |
+| 🔴     | 完善 robots.txt        | 补充 `Sitemap:` 指令指向 sitemap.xml                                                            | ⬜ 待办 |
+| 🟡     | 添加 Open Graph 元数据 | 各页面 `useSeoMeta` 补充 `ogTitle`、`ogDescription`、`ogImage`、`twitterCard`（见下方名词解释） | ⬜ 待办 |
+| 🟡     | 修复 app.head 硬编码   | `nuxt.config.ts` 中 `title` 和 `description` 是硬编码中文，应移除或改为默认语言翻译             | ⬜ 待办 |
+| 🟢     | 添加结构化数据         | 加入 `Organization`、`WebSite`、`BreadcrumbList` 等 JSON-LD                                     | ⬜ 待办 |
+| 🟢     | 验证 Canonical URL     | 确认 `useLocaleHead` 生成的 canonical 是否正确                                                  | ⬜ 待办 |
+
+### 名词解释：Open Graph 元数据
+
+- **Open Graph（OG）**：由 Facebook 提出的一套 meta 标签协议，用于在**社交平台分享链接时**展示「链接预览卡片」（标题、描述、缩略图等）。
+- **`og:title`（ogTitle）**：分享卡片上显示的**标题**，一般与页面 title 一致或略短。
+- **`og:description`（ogDescription）**：分享卡片上的**摘要文案**，建议与页面 description 一致。
+- **`og:image`（ogImage）**：分享卡片的**主图**，需为绝对 URL，推荐尺寸约 1200×630，格式 JPG/PNG。
+- **`twitter:card`（twitterCard）**：在 Twitter/X 上的卡片样式，常用 `summary_large_image` 表示「大图 + 标题 + 描述」。
+
+在 Nuxt 里通过 `useSeoMeta({ ogTitle, ogDescription, ogImage, twitterCard, ... })` 设置后，分享到微信、微博、Facebook、Twitter、LinkedIn 等时，会按这些字段生成预览，提升点击率与品牌一致性。
 
 ---
 

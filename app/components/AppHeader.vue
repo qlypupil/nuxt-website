@@ -17,7 +17,7 @@ function switchLocale(code: LocaleCode) {
 <template>
   <header class="fixed inset-x-0 top-0 z-50 border-b bg-white/80 backdrop-blur">
     <nav class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-      <div class="text-lg font-semibold text-gray-900">
+      <div class="text-lg font-semibold text-neutral-900">
         {{ t('common.siteName') }}
       </div>
       <div class="flex items-center gap-6">
@@ -62,19 +62,21 @@ function switchLocale(code: LocaleCode) {
 </template>
 
 <style scoped>
+@reference "../assets/css/main.css";
+
 .nav-link {
-  @apply text-gray-600 transition-colors hover:text-blue-600;
+  @apply hover:text-primary-600 text-neutral-600 transition-colors;
 }
 
 .router-link-active.nav-link {
-  @apply text-blue-600;
+  @apply text-primary-600;
 }
 
 .lang-chip {
-  @apply rounded-full border border-gray-300 px-2 py-0.5 text-gray-600 transition-colors hover:border-blue-500 hover:text-blue-600;
+  @apply hover:border-primary-500 hover:text-primary-600 rounded-full border border-neutral-300 px-2 py-0.5 text-neutral-600 transition-colors;
 }
 
 .lang-chip--active {
-  @apply border-blue-600 bg-blue-50 text-blue-700;
+  @apply border-primary-600 bg-primary-50 text-primary-700;
 }
 </style>

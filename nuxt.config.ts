@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     host: '', // 空字符串：监听所有网卡，终端 Local 显示为 localhost
     port: 4000,
   },
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxtjs/i18n', '@nuxt/ui'],
   css: ['~/assets/css/main.css'],
   typescript: {
     typeCheck: true,
